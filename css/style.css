@@ -17,78 +17,124 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 
+100;
 }
 
-header input {
-  flex-grow: 1;
-  margin-left: 1rem;
+header input[type="text"] {
+  width: 60%;
+  height: 2.5rem;
+  border-radius: 25px;
+  border: none;
+  padding-left: 1rem;
+  outline: none;
+}
+
+header label {
+  display: inline-block;
+  position: relative;
+}
+
+header label input[type="checkbox"] {
+  display: none;
+}
+
+header label span {
+  width: 50px;
+  height: 25px;
+  border-radius: 25px;
+  background-color: #ccc;
+  display: inline-block;
+  transition: 0.3s;
+  position: relative;
+}
+
+header label span:before {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
   background-color: #fff;
-  height: 1.5rem;
-  max-width: 400px;
+  left: 0;
+  top: 0;
+  transition: 0.3s;
 }
 
-.dark header {
-  background-color: #333;
-  border-bottom-color: #444;
+header label input[type="checkbox"]:checked + span {
+  background-color: #3CBD1C;
 }
 
-body.dark aside {
-  background-color: #333;
-  border-right-color: #444;
-}
-
-body.dark nav a {
-  color: #fff;
-}
-
-body.dark nav a:hover {
-  background-color: #1DA15D;
-  color: #fff;
-}
-
-body.dark .app {
-  border-color: #444;
-}
-
-.app-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin-top: 3rem;
-  transition: margin-left 0.3s;
+header label input[type="checkbox"]:checked + span:before {
+  left: 25px;
 }
 
 aside {
+  width: 300px;
   background-color: #F4F4F4;
-  height: calc(100% - 64px);
   position: fixed;
-  top: 64px;
-  left: -250px;
-  width: 250px;
+  top: 0;
+  left: -300px;
+  bottom: 0;
+  z-index: 100;
+  padding: 2rem;
   transition: left 0.3s;
-  z-index: 999;
 }
 
 aside.open {
   left: 0;
 }
 
-aside.open ~ main .app-grid {
-  margin-left: 250px;
+.main-logo {
+  display: block;
+  margin-bottom: 2rem;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 nav a {
   display: block;
-  text-decoration: none;
+  margin-bottom: 1rem;
   padding: 0.5rem 1rem;
-  transition: background-color 0.3s;
-  border-radius: 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #333;
+  transition: 0.3s;
 }
 
 nav a:hover {
   background-color: #1DA15D;
   color: #fff;
+}
+
+main {
+  margin-top: 4rem;
+  padding: 2rem;
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 1rem;
+}
+
+.app {
+  text-align: center;
+}
+
+.app img {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5rem;
+}
+
+.app a {
+  color: #333;
+  text-decoration: none;
 }
 
 .page {
@@ -99,32 +145,15 @@ nav a:hover {
   display: block;
 }
 
-.app {
-  padding: 1rem;
-  text-align: center;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: box-shadow 0.3s;
+body.dark {
+  background-color: #333;
+  color: #fff;
 }
 
-.app img {
-  width: 64px;
-  height: 64px;
-  margin-bottom: 0.5rem;
+body.dark header {
+  background-color: #3CBD1C;
 }
 
-.app:hover {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.main-logo {
-  display: block;
-  width: 100px;
-  margin: 0 auto 1rem;
-}
-
-main {
-  padding: 0;
-  padding-top: 64px;
+body.dark aside {
+  background-color: #F4F4F4;
 }
