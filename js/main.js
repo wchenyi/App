@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const targetPage = document.getElementById(`page-${e.target.id.split('-')[1]}`);
       activePage.classList.remove('active');
       targetPage.classList.add('active');
-      sidebar.classList.remove('open');
     });
   });
 });
