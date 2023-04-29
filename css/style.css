@@ -18,23 +18,40 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  background-color
-#F4F4F4;
-  border-bottom: 1px solid #ddd;
+  background-color: #3CBD1C;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
 header input {
-  border: 1px solid #ddd;
-  padding: 0.25rem;
-  border-radius: 50px;
-  outline: none;
+  flex-grow: 1;
+  margin-left: 1rem;
+  background-color: #fff;
 }
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
+  transition: margin-left 0.3s;
+}
+
+aside.open ~ main .app-grid {
+  margin-left: 250px;
+}
+
+main {
+  padding: 0;
+  padding-top: 64px;
+}
+
+
 
 header input:focus {
   border-color: #3CBD1C;
@@ -135,22 +152,12 @@ nav a:hover {
   color: #fff;
 }
 
-main {
-  padding: 2rem;
-}
-
 .page {
   display: none;
 }
 
 .page.active {
   display: block;
-}
-
-.app-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
 }
 
 .app {
