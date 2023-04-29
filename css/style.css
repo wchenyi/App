@@ -19,27 +19,31 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #f4f4f4;
+  background-color
+#F4F4F4;
   border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 
-header button {
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-}
-
-input[type="text"] {
-  padding: 0.5rem;
+header input {
+  border: 1px solid #ddd;
+  padding: 0.25rem;
   border-radius: 50px;
-  width: 50%;
+  outline: none;
+}
+
+header input:focus {
+  border-color: #3CBD1C;
 }
 
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px
-;
+  width: 60px;
   height: 34px;
 }
 
@@ -72,7 +76,7 @@ input[type="text"] {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #3CBD1C;
 }
 
 input:checked + .slider:before {
@@ -93,7 +97,7 @@ aside {
   left: -250px;
   width: 250px;
   height: 100%;
-  background-color: #f4f4f4;
+  background-color: #F4F4F4;
   border-right: 1px solid #ddd;
   transition: left 0.3s;
 }
@@ -122,10 +126,13 @@ nav a {
   text-decoration: none;
   color: #333;
   text-align: center;
+  border-radius: 50px;
+  transition: all 0.3s;
 }
 
 nav a:hover {
-  background-color: #ddd;
+  background-color: #1DA15D;
+  color: #fff;
 }
 
 main {
@@ -169,7 +176,7 @@ main {
 .app a {
   display: inline-block;
   margin-top: 1rem;
-  background-color: #333;
+  background-color: #3CBD1C;
   color: #fff;
   padding: 0.25rem 0.5rem;
   text-decoration: none;
@@ -181,26 +188,26 @@ body.dark {
   color: #fff;
 }
 
-body.dark header {
-  background-color: #444;
-  border-color: #222;
+body
+.dark header {
+  background-color: #333;
+  border-bottom-color: #444;
 }
 
 body.dark aside {
-  background-color: #444;
-  border-color: #222;
+  background-color: #333;
+  border-right-color: #444;
+}
+
+body.dark nav a {
+  color: #fff;
 }
 
 body.dark nav a:hover {
-  background-color: #666;
+  background-color: #1DA15D;
+  color: #fff;
 }
 
-body.dark .app-grid .app {
+body.dark .app {
   border-color: #444;
-}
-
-body.dark button,
-body.dark .app a {
-  background-color: #fff;
-  color: #333;
 }
