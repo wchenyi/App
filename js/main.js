@@ -1,5 +1,4 @@
-document.getElementById("theme-toggle").addEventListener("click", () => {
-  document.body.classList.toggle("dark");
+.toggle("sidebar-open");
 });
 
 document.getElementById("search-box").addEventListener("input", (event) => {
@@ -13,5 +12,21 @@ document.getElementById("search-box").addEventListener("input", (event) => {
     } else {
       app.style.display = "none";
     }
+  });
+});
+
+const navLinks = document.querySelectorAll("nav a");
+navLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const targetId = event.target.id.split("-")[1];
+    const targetPage = document.getElementById("page-" + targetId);
+
+    document.querySelectorAll(".page").forEach((page) => {
+      page.classList.remove("active");
+    });
+
+    targetPage.classList.add("active");
   });
 });
