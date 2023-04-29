@@ -1,32 +1,25 @@
-.toggle("sidebar-open");
-});
-
-document.getElementById("search-box").addEventListener("input", (event) => {
-  const searchTerm = event.target.value.toLowerCase();
-  const apps = document.querySelectorAll(".app");
-
-  apps.forEach((app) => {
-    const appName = app.querySelector("h3").textContent.toLowerCase();
-    if (appName.includes(searchTerm)) {
-      app.style.display = "block";
-    } else {
-      app.style.display = "none";
-    }
+document.addEventListener('DOMContentLoaded', function () {
+  const themeToggle = document.getElementById('theme-toggle');
+  const sidebarToggle = document.getElementById('sidebar-toggle');
+  const sidebar = document.querySelector('aside');
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  themeToggle.addEventListener('change', function () {
+    document.body.classList.toggle('dark');
   });
-});
 
-const navLinks = document.querySelectorAll("nav a");
-navLinks.forEach((link) => {
-  link.addEventListener("click", (event) => {
-    event.preventDefault();
+  sidebarToggle.addEventListener('click', function () {
+    sidebar.classList.toggle('open');
+  });
 
-    const targetId = event.target.id.split("-")[1];
-    const targetPage = document.getElementById("page-" + targetId);
-
-    document.querySelectorAll(".page").forEach((page) => {
-      page.classList.remove("active");
+  navLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const activePage = document.querySelector('.page.active');
+      const targetPage = document.getElementById(`page-${e.target.id.split('-')[1]}`);
+      activePage.classList.remove('active');
+      targetPage.classList.add('active');
+      sidebar.classList.remove('open');
     });
-
-    targetPage.classList.add("active");
   });
 });
