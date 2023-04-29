@@ -1,24 +1,34 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const themeToggle = document.getElementById('theme-toggle');
-  const sidebarToggle = document.getElementById('sidebar-toggle');
-  const sidebar = document.querySelector('aside');
-  const navLinks = document.querySelectorAll('.nav-link');
-  
-  themeToggle.addEventListener('change', function () {
-    document.body.classList.toggle('dark');
-  });
+  const toggle = document.querySelector('header label input[type="checkbox"]');
+  const body = document.querySelector('body');
+  const menuButton = document.querySelector('.menu-button');
+  const aside = document.querySelector('aside');
+  const pageButtons = document.querySelectorAll('nav a');
+  const pages = document.querySelectorAll('.page');
 
-  sidebarToggle.addEventListener('click', function () {
-    sidebar.classList.toggle('open');
-  });
+  function toggleDarkMode() {
+    body.classList.toggle('dark');
+  }
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      const activePage = document.querySelector('.page.active');
-      const targetPage = document.getElementById(`page-${e.target.id.split('-')[1]}`);
-      activePage.classList.remove('active');
-      targetPage.classList.add('active');
+  function toggleMenu() {
+    aside.classList.toggle('open');
+  }
+
+  function switchPage(e) {
+    e.preventDefault();
+    const targetPage = e.target.getAttribute('data-page');
+
+    pages.forEach((page) => {
+      page.classList.remove('active');
     });
+
+    document.getElementById(targetPage).classList.add('active');
+  }
+
+  toggle.addEventListener('change', toggleDarkMode);
+  menuButton.addEventListener('click', toggleMenu);
+
+  pageButtons.forEach((button) => {
+    button.addEventListener('click', switchPage);
   });
 });
