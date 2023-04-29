@@ -1,17 +1,9 @@
-* {
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color: #fff;
   color: #333;
-  position: relative;
-  padding-left: 250px;
-  transition: padding-left 0.3s;
 }
 
 header {
@@ -32,170 +24,10 @@ header input {
   flex-grow: 1;
   margin-left: 1rem;
   background-color: #fff;
+  height: 1.5rem;
+  max-width: 400px;
 }
 
-.app-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin-top: 3rem;
-  transition: margin-left 0.3s;
-}
-
-aside.open ~ main .app-grid {
-  margin-left: 250px;
-}
-
-main {
-  padding: 0;
-  padding-top: 64px;
-}
-
-
-
-header input:focus {
-  border-color: #3CBD1C;
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
-}
-
-input:checked + .slider {
-  background-color: #3CBD1C;
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-aside {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  width: 250px;
-  height: 100%;
-  background-color: #F4F4F4;
-  border-right: 1px solid #ddd;
-  transition: left 0.3s;
-}
-
-aside.open {
-  left: 0;
-}
-
-.logo {
-  display: block;
-  width: 50px;
-  height: 50px;
-  margin: 1rem auto;
-}
-
-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-nav a {
-  display: block;
-  padding: 0.5rem;
-  text-decoration: none;
-  color: #333;
-  text-align: center;
-  border-radius: 50px;
-  transition: all 0.3s;
-}
-
-nav a:hover {
-  background-color: #1DA15D;
-  color: #fff;
-}
-
-.page {
-  display: none;
-}
-
-.page.active {
-  display: block;
-}
-
-.app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 1rem;
-  border: 1px solid #ddd;
-}
-
-.app img {
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-  margin-bottom: 1rem;
-}
-
-.app img:hover {
-  opacity: 0.8;
-}
-
-.app a {
-  display: inline-block;
-  margin-top: 1rem;
-  background-color: #3CBD1C;
-  color: #fff;
-  padding: 0.25rem 0.5rem;
-  text-decoration: none;
-}
-
-/* Dark mode */
-body.dark {
-  background-color: #333;
-  color: #fff;
-}
-
-body
 .dark header {
   background-color: #333;
   border-bottom-color: #444;
@@ -217,4 +49,82 @@ body.dark nav a:hover {
 
 body.dark .app {
   border-color: #444;
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
+  transition: margin-left 0.3s;
+}
+
+aside {
+  background-color: #F4F4F4;
+  height: calc(100% - 64px);
+  position: fixed;
+  top: 64px;
+  left: -250px;
+  width: 250px;
+  transition: left 0.3s;
+  z-index: 999;
+}
+
+aside.open {
+  left: 0;
+}
+
+aside.open ~ main .app-grid {
+  margin-left: 250px;
+}
+
+nav a {
+  display: block;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s;
+  border-radius: 15px;
+}
+
+nav a:hover {
+  background-color: #1DA15D;
+  color: #fff;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.app {
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+.app img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 0.5rem;
+}
+
+.app:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.main-logo {
+  display: block;
+  width: 100px;
+  margin: 0 auto 1rem;
+}
+
+main {
+  padding: 0;
+  padding-top: 64px;
 }
